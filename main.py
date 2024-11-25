@@ -9,6 +9,7 @@ import random
 import math
 import argparse
 import os
+import gc
 
 def seed_all(seed):
     random.seed(seed)
@@ -36,16 +37,16 @@ def parse_args():
         parser.add_argument("--group_id", type=int, default=0, help="group_id")
     
     parser.add_argument("--world_size", type=int, default=6, help="number of GPUs to use")
-    parser.add_argument("--batch_size", type=int, default=5, help="batch size")
-    if args.encode_method == 'FP':
+    parser.add_argument("--batch_size", type=int, default=10, help="batch size")
+    if 'FP' in args.encode_method:
         parser.add_argument("--lr", type=float, help="learning rate", default=0.001)
-    elif args.encode_method == 'Graph':
+    elif 'Graph' in args.encode_method:
         parser.add_argument("--lr", type=float, help="learning rate", default=0.0005)
     return parser.parse_args()
 
 args = parse_args()
 
-if args.encode_method == 'FP':
+if 'FP' in args.encode_method:
     from deep_ensemble import deep_ensemble_FP as deep_ensemble
     if args.dataset == 'fsmol':
         from EDKT_data.Data_FP_fsmol import deep_gp_data
@@ -55,7 +56,7 @@ if args.encode_method == 'FP':
         from EDKT_data.Data_FP_pQSAR import deep_gp_data
         from DKT_dataset import MLP_train_dataset_pQSAR as MLP_train_dataset
         from DKT_dataset import MLP_eval_dataset_pQSAR as MLP_eval_dataset
-elif args.encode_method == 'Graph':
+elif 'Graph' in args.encode_method:
     from deep_ensemble import deep_ensemble_Graph as deep_ensemble
     if args.dataset == 'fsmol':
         from EDKT_data.Data_Graph_fsmol import deep_gp_data
@@ -71,37 +72,37 @@ def custom_collate_fn(batch):
 
 def train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, rank, world_size):
 
-    if args.encode_method == 'FP':
+    if 'FP' in args.encode_method:
         dataset_train = MLP_train_dataset(train_assay_ls, data)
         dataset_eval = MLP_eval_dataset(eval_assay_ls, data)
-    elif args.encode_method == 'Graph':
+    elif 'Graph' in args.encode_method:
         dataset_train = Graph_train_dataset(train_assay_ls, data)
         dataset_eval = Graph_eval_dataset(eval_assay_ls, data)
-    
+
     train_sampler = DistributedSampler(dataset_train, num_replicas=world_size, rank=rank)
-    if rank == 0:
-        print(args.batch_size)
     train_data_loader = DataLoader(dataset_train, batch_size=args.batch_size, sampler=train_sampler, collate_fn=custom_collate_fn)
-    
     eval_data_loader = DataLoader(dataset_eval, batch_size=1, shuffle=False, collate_fn=custom_collate_fn)
     if rank == 0:
-        log_file_path = f"./temp_result/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
-        result_file_path = f"./pred_result/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
-        
+        print(args.batch_size)
+        if args.dataset == 'fsmol':
+            log_file_path = f"./temp_result/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
+            result_file_path = f"./pred_result/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
+        elif args.dataset == 'pQSAR':
+            log_file_path = f"./temp_result/Dataset:{args.dataset}_Groupid:{args.group_id}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
+            result_file_path = f"./pred_result/Dataset:{args.dataset}_Groupid:{args.group_id}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.txt"
         with open(log_file_path, 'w') as f:
             f.writelines('training...\n')
         with open(result_file_path, 'w') as f:
             f.writelines('Prediction:\n')
-    if args.encode_method == 'FP':
+    if 'FP' in args.encode_method:
         itter_num = 40
-    elif args.encode_method == 'Graph':
-        itter_num = 1000
+    elif 'Graph' in args.encode_method:
+        itter_num = 80
     for epoch in range(itter_num):
         train_data_loader.sampler.set_epoch(epoch)
         dataset_train.set_epoch(epoch)
         model.train()
         epoch_loss = []
-        
         for batch in train_data_loader:
             batch_loss = 0
             for idx in range(len(batch)):
@@ -112,11 +113,9 @@ def train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, r
             batch_loss.backward()
             optimizer.step()
             epoch_loss.append(batch_loss.item())
-        
         if rank == 0:
             current_lr = optimizer.param_groups[0]['lr']
             print(f"Epoch: {epoch}, Loss: {np.mean(epoch_loss)}, Learning Rate: {current_lr}")
-        
         if (epoch+1) % 2 == 0:
             model.eval()
             with torch.no_grad():
@@ -133,14 +132,20 @@ def train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, r
                         if epoch == itter_num - 1 and rank == 0:
                             with open(result_file_path, 'a') as f:
                                 f.writelines(f'{assay_id}, {r2}\n')
+                # save log file
                 if rank == 0:
                     print(f"Mean: {np.mean(r2_ls)}, Median: {np.median(r2_ls)}, Num: {len(r2_ls)}")
                     with open(log_file_path, 'a') as f:
                         f.writelines('{} {} {}\n'.format(np.mean(r2_ls), np.median(r2_ls), len(r2_ls)))
-                    
+                    # save model after last epoch
                     if epoch == itter_num - 1:
-                        torch.save(model.module.state_dict(), f'../Model_for_publication/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.pth')
-
+                        if args.dataset == 'fsmol':
+                            torch.save(model.module.state_dict(), f'../Model_for_publication/Dataset:{args.dataset}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.pth')
+                        elif args.dataset == 'pQSAR':
+                            torch.save(model.module.state_dict(), f'../Model_for_publication/Dataset:{args.dataset}_Groupid:{args.group_id}_Method:{args.encode_method}_Num:{args.num_encoder}_NCL:{args.allow_NCL}_seed:{args.random_seed}.pth')
+        # Clear memory after each epoch
+        torch.cuda.empty_cache()
+        gc.collect()
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ['MASTER_PORT'] = '12355'
@@ -155,7 +160,7 @@ def main_worker(rank, world_size, args):
     
     device = torch.device(f"cuda:{rank}")
     
-    if args.encode_method == 'FP':
+    if 'FP' in args.encode_method:
         if args.dataset == 'fsmol':
             assay_id_train_test_split = np.load('../Data_for_publication/fsmol/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
@@ -171,7 +176,7 @@ def main_worker(rank, world_size, args):
             eval_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
             data_path = '../Data_for_publication/pQSAR/ci9b00375_si_002.txt'
             data = deep_gp_data(data_path)
-    elif args.encode_method == 'Graph':
+    elif 'Graph' in args.encode_method:
         if args.dataset == 'fsmol':
             assay_id_train_test_split = np.load('../Data_for_publication/fsmol/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
@@ -181,10 +186,16 @@ def main_worker(rank, world_size, args):
             data_path_test = '../Data_for_publication/fsmol/all_data_graph_test_10fold_32.pkl'
             data = deep_gp_data(data_path, data_path_test)
         elif args.dataset == 'pQSAR':
-            assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle = True)
+            # assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle = True)
+            # included_assay = np.load('../Data_for_publication/pQSAR/included_assay.pkl', allow_pickle = True)
+            # train_assay_ls = assay_id_train_test_split[args.group_id]['train_assays']
+            # eval_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
+            # train_assay_ls = [x for x in train_assay_ls if x in included_assay]
+            # eval_assay_ls = [x for x in eval_assay_ls if x in included_assay]
+            assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/pQSAR_split_dic.pkl', allow_pickle=True)
+            train_assay_ls = list(assay_id_train_test_split[args.group_id]['train'])
+            eval_assay_ls = list(assay_id_train_test_split[args.group_id]['test'])
             included_assay = np.load('../Data_for_publication/pQSAR/included_assay.pkl', allow_pickle = True)
-            train_assay_ls = assay_id_train_test_split[args.group_id]['train_assays']
-            eval_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
             train_assay_ls = [x for x in train_assay_ls if x in included_assay]
             eval_assay_ls = [x for x in eval_assay_ls if x in included_assay]
             print(len(train_assay_ls))
@@ -194,7 +205,6 @@ def main_worker(rank, world_size, args):
     model = deep_ensemble.ensemble_deep_gp(args)
     model = model.to(device)
     model = DDP(model, device_ids=[rank])
-    
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
     train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, rank, world_size)
     cleanup()

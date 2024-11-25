@@ -7,7 +7,6 @@ import gpytorch
 from torch.distributions import MultivariateNormal
 
 class ensemble_deep_gp(nn.Module):
-    
     def __init__(self, args):
         super(ensemble_deep_gp, self).__init__()
         self.args = args
@@ -18,7 +17,7 @@ class ensemble_deep_gp(nn.Module):
             self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.MaternKernel(nu=2.5)))
             # self.encoder_list.append(fp_encoder.MLP_encoder(2048, 1000, 500, 5))
             if args.dataset == 'fsmol':
-                self.encoder_list.append(fp_encoder.MLP_encoder(2048, 1000, 500, 5))
+                self.encoder_list.append(fp_encoder.MLP_encoder(2048, 1000, 1000, 5))
             elif args.dataset == 'pQSAR':
                 self.encoder_list.append(fp_encoder.MLP_encoder(1024, 500, 500, 5))
 

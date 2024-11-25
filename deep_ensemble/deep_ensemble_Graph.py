@@ -17,13 +17,18 @@ class ensemble_deep_gp(nn.Module):
         num_encoder = args.num_encoder
         for _ in range(num_encoder):
             self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.MaternKernel(nu=2.5)))
+            # self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel()))
             # self.encoder_list.append(Graph_encoder.GAT_Graph(32, 100, 100, 5, 5))
             # self.encoder_list.append(Graph_encoder.GCN_Graph(32, 1000, 1000, 8))
-            # self.encoder_list.append(Graph_encoder.MPNN_Graph(32, 1000, 1000, 7, 10))
             if args.dataset == 'fsmol':
-                # self.encoder_list.append(Graph_encoder.GAT_Graph(32, 200, 200, 7, 5))
-                self.encoder_list.append(Graph_encoder.GCN_Graph(32, 1000, 1000, 10))
-                # self.encoder_list.append(Graph_encoder.MPNN_Graph(32, 1000, 1000, 7, 10))
+                if 'GAT' in args.encode_method: 
+                    self.encoder_list.append(Graph_encoder.GAT_Graph(32, 200, 200, 7, 5))
+                elif 'GCN' in args.encode_method:
+                    self.encoder_list.append(Graph_encoder.GCN_Graph(32, 1000, 1000, 7))
+                elif 'GIN' in args.encode_method:
+                    self.encoder_list.append(Graph_encoder.GIN_Graph(32, 1000, 1000, 7))
+                elif 'GraphSAGE' in args.encode_method:
+                    self.encoder_list.append(Graph_encoder.GraphSAGE(32, 1000, 1000, 7))
             elif args.dataset == 'pQSAR':
                 self.encoder_list.append(Graph_encoder.GAT_Graph(30, 200, 200, 5, 5))
         self.args = args
@@ -103,26 +108,26 @@ class ensemble_deep_gp(nn.Module):
         mean = torch.matmul(torch.matmul(K_query, mat_inverse), y_support.to(device))
         return mean
     
-    # def multivariate_gaussian_loglikelihood(self, x, y, kernel_idx, device):
-    #     covariance = self.kernel_list[kernel_idx](x).to_dense() + 0.01 * torch.eye(x.shape[0]).to(device)
-    #     # Create a MultivariateNormal distribution
-    #     dist = MultivariateNormal(loc=torch.zeros(y.shape[-1]).to(device), covariance_matrix=covariance)
-    #     # Calculate the log-likelihood
-    #     log_likelihood = dist.log_prob(y)
-    #     return log_likelihood, covariance
-
     def multivariate_gaussian_loglikelihood(self, x, y, kernel_idx, device):
         covariance = self.kernel_list[kernel_idx](x).to_dense() + 0.01 * torch.eye(x.shape[0]).to(device)
-        # K = self.kernel(x).to_dense()
-        neg_log_likelihood = -self.data_fit_loss(covariance, y, device) - self.penalty(covariance, device) + y.shape[0] * 0.5 * torch.log(torch.tensor(2 * np.pi))
-        return -neg_log_likelihood, covariance
+        # Create a MultivariateNormal distribution
+        dist = MultivariateNormal(loc=torch.zeros(y.shape[-1]).to(device), covariance_matrix=covariance)
+        # Calculate the log-likelihood
+        log_likelihood = dist.log_prob(y)
+        return log_likelihood, covariance
+
+    # def multivariate_gaussian_loglikelihood(self, x, y, kernel_idx, device):
+    #     covariance = self.kernel_list[kernel_idx](x).to_dense() + 0.01 * torch.eye(x.shape[0]).to(device)
+    #     # K = self.kernel(x).to_dense()
+    #     neg_log_likelihood = -self.data_fit_loss(covariance, y, device) - self.penalty(covariance, device) + y.shape[0] * 0.5 * torch.log(torch.tensor(2 * np.pi))
+    #     return -neg_log_likelihood, covariance
     
-    def data_fit_loss(self, K, y, device):
-        inverse_mat = torch.inverse(K + 0.01 * torch.eye(K.shape[0]).to(device))
-        log_likelihood = -0.5 * torch.matmul(y.T, torch.matmul(inverse_mat, y))
-        return log_likelihood
+    # def data_fit_loss(self, K, y, device):
+    #     inverse_mat = torch.inverse(K + 0.01 * torch.eye(K.shape[0]).to(device))
+    #     log_likelihood = -0.5 * torch.matmul(y.T, torch.matmul(inverse_mat, y))
+    #     return log_likelihood
     
-    def penalty(self, K, device):
-         covar_mat = K + 0.01 * torch.eye(K.shape[0]).to(device)
-         penalty = -0.5 * torch.log(torch.norm(covar_mat))
-         return penalty
+    # def penalty(self, K, device):
+    #      covar_mat = K + 0.01 * torch.eye(K.shape[0]).to(device)
+    #      penalty = -0.5 * torch.log(torch.norm(covar_mat))
+    #      return penalty
