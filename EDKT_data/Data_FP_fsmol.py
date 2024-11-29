@@ -6,7 +6,6 @@ from statistics import mode
 import pickle 
 from data_classes import experiment, experiment_test, assay, total_assays
 
-
 def split_list(lst, ratio=0.5):
     # Shuffle the list in place
     random.shuffle(lst)
@@ -32,7 +31,7 @@ class deep_gp_data:
         x_tensor_support = []
         y_tensor_support = []
         for experiment in self.all_data.assay_dic[assay_id].experiments:
-            x = experiment.cpd_id
+            x = experiment.fp1
             y = torch.tensor(experiment.expt_pIC50)
             tuple_ls.append((x, y))
         
@@ -57,7 +56,7 @@ class deep_gp_data:
         y_tensor_support = []
         tuple_ls = []
         for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
-            x = experiment.cpd_id
+            x = experiment.fp1
             y = torch.tensor(experiment.expt_pIC50)
             tuple_ls.append((x, y, experiment.test_flag_fold))
         

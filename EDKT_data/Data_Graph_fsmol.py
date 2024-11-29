@@ -28,7 +28,7 @@ class deep_gp_data:
     def smiles_to_graph(self, assay_id, sample_num, r_seed):
         tuple_ls = []
         for experiment in self.all_data.assay_dic[assay_id].experiments:
-            graph_temp = experiment.cpd_id
+            graph_temp = experiment.fp1
             y = torch.tensor(experiment.expt_pIC50).float()
             tuple_ls.append((graph_temp, y))
         
@@ -57,7 +57,7 @@ class deep_gp_data:
     def smiles_to_graph_test(self, assay_id, fold_id):
         tuple_ls = []
         for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
-            graph_temp = experiment.cpd_id
+            graph_temp = experiment.fp1
             y = torch.tensor(experiment.expt_pIC50).float()
             tuple_ls.append((graph_temp, y, experiment.test_flag_fold))
         

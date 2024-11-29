@@ -162,12 +162,12 @@ def main_worker(rank, world_size, args):
     
     if 'FP' in args.encode_method:
         if args.dataset == 'fsmol':
-            assay_id_train_test_split = np.load('../Data_for_publication/fsmol/split_dic.pkl', allow_pickle=True)
+            assay_id_train_test_split = np.load('../Data_for_publication/fsmol_multifp/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
             print(len(train_assay_ls))
             eval_assay_ls = assay_id_train_test_split['test_assays']
-            data_path = '../Data_for_publication/fsmol/all_data_fp.pkl'
-            data_path_test = '../Data_for_publication/fsmol/all_data_fp_test_10fold_32.pkl'
+            data_path = '../Data_for_publication/fsmol_multifp/all_data_fp.pkl'
+            data_path_test = '../Data_for_publication/fsmol_multifp/all_data_fp_test_10fold_32.pkl'
             data = deep_gp_data(data_path, data_path_test)
         elif args.dataset == 'pQSAR':
             assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle=True)
@@ -178,12 +178,12 @@ def main_worker(rank, world_size, args):
             data = deep_gp_data(data_path)
     elif 'Graph' in args.encode_method:
         if args.dataset == 'fsmol':
-            assay_id_train_test_split = np.load('../Data_for_publication/fsmol/split_dic.pkl', allow_pickle=True)
+            assay_id_train_test_split = np.load('../Data_for_publication/fsmol_multifp/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
             print(len(train_assay_ls))
             eval_assay_ls = assay_id_train_test_split['test_assays']
-            data_path = '../Data_for_publication/fsmol/all_data_graph.pkl'
-            data_path_test = '../Data_for_publication/fsmol/all_data_graph_test_10fold_32.pkl'
+            data_path = '../Data_for_publication/fsmol_multifp/all_data_graph.pkl'
+            data_path_test = '../Data_for_publication/fsmol_multifp/all_data_graph_test_10fold_32.pkl'
             data = deep_gp_data(data_path, data_path_test)
         elif args.dataset == 'pQSAR':
             # assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle = True)

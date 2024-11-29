@@ -18,8 +18,6 @@ class ensemble_deep_gp(nn.Module):
         for _ in range(num_encoder):
             self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.MaternKernel(nu=2.5)))
             # self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel()))
-            # self.encoder_list.append(Graph_encoder.GAT_Graph(32, 100, 100, 5, 5))
-            # self.encoder_list.append(Graph_encoder.GCN_Graph(32, 1000, 1000, 8))
             if args.dataset == 'fsmol':
                 if 'GAT' in args.encode_method: 
                     self.encoder_list.append(Graph_encoder.GAT_Graph(32, 200, 200, 7, 5))
@@ -90,6 +88,15 @@ class ensemble_deep_gp(nn.Module):
             encoded_x = self.encoder_list[idx](processed_x)
             pred.append(self.pred(encoded_x[:support_num], processed_y[:support_num], encoded_x[support_num:], idx, device))
         return pred
+
+    def prediction_seperate_var(self, task_data, device):
+        x_support, y_support, x_query, y_query = task_data
+        processed_x, processed_y, support_num, query_num = self.get_method_specific_data_format(x_support, y_support, x_query, y_query, device)
+        pred_var = []
+        for idx in range(self.num_encoder):
+            encoded_x = self.encoder_list[idx](processed_x)
+            pred_var.append(self.pred_var(encoded_x[:support_num], processed_y[:support_num], encoded_x[support_num:], idx, device))
+        return pred_var
     
     def get_method_specific_data_format(self, x_support, y_support, x_query, y_query, device):
         x = x_support + x_query
@@ -107,6 +114,17 @@ class ensemble_deep_gp(nn.Module):
         mat_inverse = torch.inverse(K_support + 0.01 * torch.eye(K_support.shape[0]).to(device))
         mean = torch.matmul(torch.matmul(K_query, mat_inverse), y_support.to(device))
         return mean
+    
+    def pred_var(self, x_support_encoded, y_support, x_query_encoded, kernel_idx, device):
+        out = torch.cat((x_support_encoded, x_query_encoded), dim=0)
+        K_all = self.kernel_list[kernel_idx](out).to_dense()
+        K_support = K_all[:x_support_encoded.shape[0], :x_support_encoded.shape[0]]
+        K_query = K_all[x_support_encoded.shape[0]:, :x_support_encoded.shape[0]]
+        K_query_query = K_all[x_support_encoded.shape[0]:, x_support_encoded.shape[0]:]
+        
+        mat_inverse = torch.inverse(K_support + 0.01 * torch.eye(K_support.shape[0]).to(device))
+        var = torch.diag(K_query_query - torch.matmul(torch.matmul(K_query, mat_inverse), K_query.t()))
+        return var
     
     def multivariate_gaussian_loglikelihood(self, x, y, kernel_idx, device):
         covariance = self.kernel_list[kernel_idx](x).to_dense() + 0.01 * torch.eye(x.shape[0]).to(device)
