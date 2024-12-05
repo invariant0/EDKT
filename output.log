@@ -1,1 +1,873 @@
 nohup: ignoring input
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1875.7048985072545, Learning Rate: 0.001
+Epoch: 1, Loss: 1190.8832842145648, Learning Rate: 0.001
+Mean: 0.40597031870805383, Median: 0.4062344017688955, Num: 100
+Epoch: 2, Loss: 1021.5091256277901, Learning Rate: 0.001
+Epoch: 3, Loss: 1085.6756713867187, Learning Rate: 0.001
+Mean: 0.44379407061424536, Median: 0.423792897188194, Num: 100
+Epoch: 4, Loss: 876.5886648995536, Learning Rate: 0.001
+Epoch: 5, Loss: 841.5767691476004, Learning Rate: 0.001
+Mean: 0.45924345204523265, Median: 0.4702320644258619, Num: 100
+Epoch: 6, Loss: 884.9886291503906, Learning Rate: 0.001
+Epoch: 7, Loss: 780.6579040527344, Learning Rate: 0.001
+Mean: 0.4651222728973152, Median: 0.43913645368678444, Num: 100
+Epoch: 8, Loss: 743.8166591099331, Learning Rate: 0.001
+Epoch: 9, Loss: 710.1147024972098, Learning Rate: 0.001
+Mean: 0.4679397582945192, Median: 0.4470690117658043, Num: 100
+Epoch: 10, Loss: 749.9821982247489, Learning Rate: 0.001
+Epoch: 11, Loss: 733.4878805977958, Learning Rate: 0.001
+Mean: 0.4709272914857314, Median: 0.43861366498159576, Num: 100
+Epoch: 12, Loss: 679.5460549490792, Learning Rate: 0.001
+Epoch: 13, Loss: 672.2171718052456, Learning Rate: 0.001
+Mean: 0.4724785433754856, Median: 0.4491513781408366, Num: 100
+Epoch: 14, Loss: 649.0869698660714, Learning Rate: 0.001
+Epoch: 15, Loss: 660.542027936663, Learning Rate: 0.001
+Mean: 0.4751321326309234, Median: 0.46893569599125984, Num: 100
+Epoch: 16, Loss: 635.8835074288504, Learning Rate: 0.001
+Epoch: 17, Loss: 674.2804482596262, Learning Rate: 0.001
+Mean: 0.47697737262087253, Median: 0.4483089658041145, Num: 100
+Epoch: 18, Loss: 597.2153224400112, Learning Rate: 0.001
+Epoch: 19, Loss: 592.6414049421038, Learning Rate: 0.001
+Mean: 0.47462553896408877, Median: 0.4744348834097827, Num: 100
+Epoch: 20, Loss: 663.2948904854911, Learning Rate: 0.001
+Epoch: 21, Loss: 563.9828853062221, Learning Rate: 0.001
+Mean: 0.47849732193016925, Median: 0.4577339854139301, Num: 100
+Epoch: 22, Loss: 501.97698582240514, Learning Rate: 0.001
+Epoch: 23, Loss: 508.4655308314732, Learning Rate: 0.001
+Mean: 0.4817903110920739, Median: 0.48257964507068396, Num: 100
+Epoch: 24, Loss: 628.9865195138113, Learning Rate: 0.001
+Epoch: 25, Loss: 583.156924874442, Learning Rate: 0.001
+Mean: 0.47969142023916533, Median: 0.49471764588011846, Num: 100
+Epoch: 26, Loss: 597.6261583600725, Learning Rate: 0.001
+Epoch: 27, Loss: 513.4310219900949, Learning Rate: 0.001
+Mean: 0.47314740798418703, Median: 0.459268416735919, Num: 100
+Epoch: 28, Loss: 508.77965545654297, Learning Rate: 0.001
+Epoch: 29, Loss: 547.6643317086356, Learning Rate: 0.001
+Mean: 0.48031962551114676, Median: 0.4661467182632986, Num: 100
+Epoch: 30, Loss: 488.2355486188616, Learning Rate: 0.001
+Epoch: 31, Loss: 510.6830269949777, Learning Rate: 0.001
+Mean: 0.4827144072381915, Median: 0.47116510879189644, Num: 100
+Epoch: 32, Loss: 493.62684217180527, Learning Rate: 0.001
+Epoch: 33, Loss: 455.9159024919782, Learning Rate: 0.001
+Mean: 0.4811607093658627, Median: 0.4688253283121281, Num: 100
+Epoch: 34, Loss: 524.284517124721, Learning Rate: 0.001
+Epoch: 35, Loss: 513.93805607387, Learning Rate: 0.001
+Mean: 0.4824954116368138, Median: 0.4800945026286285, Num: 100
+Epoch: 36, Loss: 441.2945872715541, Learning Rate: 0.001
+Epoch: 37, Loss: 460.7197283063616, Learning Rate: 0.001
+Mean: 0.478745311148032, Median: 0.47239451007243427, Num: 100
+Epoch: 38, Loss: 492.0771793910435, Learning Rate: 0.001
+Epoch: 39, Loss: 428.88933628627234, Learning Rate: 0.001
+Mean: 0.4808555489465863, Median: 0.4849694114200046, Num: 100
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 2071.2875453404017, Learning Rate: 0.001
+Epoch: 1, Loss: 1260.381712123326, Learning Rate: 0.001
+Mean: 0.39417565935522036, Median: 0.3765478199012684, Num: 100
+Epoch: 2, Loss: 1067.1955505371093, Learning Rate: 0.001
+Epoch: 3, Loss: 1117.0612627301898, Learning Rate: 0.001
+Mean: 0.4289024176352153, Median: 0.43099621100982677, Num: 100
+Epoch: 4, Loss: 897.277042061942, Learning Rate: 0.001
+Epoch: 5, Loss: 855.1528198242188, Learning Rate: 0.001
+Mean: 0.44978791664853063, Median: 0.4369082689452146, Num: 100
+Epoch: 6, Loss: 896.6730547223773, Learning Rate: 0.001
+Epoch: 7, Loss: 788.5699244907925, Learning Rate: 0.001
+Mean: 0.45639697312306643, Median: 0.438067099317901, Num: 100
+Epoch: 8, Loss: 752.8550074986049, Learning Rate: 0.001
+Epoch: 9, Loss: 719.3904854910714, Learning Rate: 0.001
+Mean: 0.4627586819687415, Median: 0.437974172473256, Num: 100
+Epoch: 10, Loss: 759.0172956194197, Learning Rate: 0.001
+Epoch: 11, Loss: 743.1272194998605, Learning Rate: 0.001
+Mean: 0.46799186785922764, Median: 0.46750702274174183, Num: 100
+Epoch: 12, Loss: 688.9961451939174, Learning Rate: 0.001
+Epoch: 13, Loss: 684.1299412318639, Learning Rate: 0.001
+Mean: 0.4707369700492099, Median: 0.4516746556349329, Num: 100
+Epoch: 14, Loss: 659.9724029541015, Learning Rate: 0.001
+Epoch: 15, Loss: 672.5469643729074, Learning Rate: 0.001
+Mean: 0.4721389653268803, Median: 0.45655605696708834, Num: 100
+Epoch: 16, Loss: 650.5489911760602, Learning Rate: 0.001
+Epoch: 17, Loss: 688.6524645124163, Learning Rate: 0.001
+Mean: 0.4731174592308273, Median: 0.44490350480403096, Num: 100
+Epoch: 18, Loss: 608.4274802071708, Learning Rate: 0.001
+Epoch: 19, Loss: 602.9212633405413, Learning Rate: 0.001
+Mean: 0.4692704029209312, Median: 0.4602159791688383, Num: 100
+Epoch: 20, Loss: 675.7900377546038, Learning Rate: 0.001
+Epoch: 21, Loss: 577.8354178292411, Learning Rate: 0.001
+Mean: 0.4734572667143198, Median: 0.4464420501842587, Num: 100
+Epoch: 22, Loss: 515.6205535888672, Learning Rate: 0.001
+Epoch: 23, Loss: 522.6510018484933, Learning Rate: 0.001
+Mean: 0.4768284600812197, Median: 0.4669235161561729, Num: 100
+Epoch: 24, Loss: 642.554252406529, Learning Rate: 0.001
+Epoch: 25, Loss: 597.9848942347935, Learning Rate: 0.001
+Mean: 0.47645013167820016, Median: 0.4523179251912163, Num: 100
+Epoch: 26, Loss: 612.9720273699079, Learning Rate: 0.001
+Epoch: 27, Loss: 527.7865604945591, Learning Rate: 0.001
+Mean: 0.4727157082789757, Median: 0.4611921242602044, Num: 100
+Epoch: 28, Loss: 524.90667048863, Learning Rate: 0.001
+Epoch: 29, Loss: 562.6384259905134, Learning Rate: 0.001
+Mean: 0.4749476346756555, Median: 0.45105715224174714, Num: 100
+Epoch: 30, Loss: 503.52647966657366, Learning Rate: 0.001
+Epoch: 31, Loss: 526.1015635899136, Learning Rate: 0.001
+Mean: 0.4775648247115533, Median: 0.4692311346767878, Num: 100
+Epoch: 32, Loss: 511.53989562988284, Learning Rate: 0.001
+Epoch: 33, Loss: 472.6924682617188, Learning Rate: 0.001
+Mean: 0.47824399674251766, Median: 0.45220496275034716, Num: 100
+Epoch: 34, Loss: 540.4646545410156, Learning Rate: 0.001
+Epoch: 35, Loss: 529.5784885951451, Learning Rate: 0.001
+Mean: 0.4744536043882546, Median: 0.4647633406689049, Num: 100
+Epoch: 36, Loss: 457.9791475568499, Learning Rate: 0.001
+Epoch: 37, Loss: 478.0028335571289, Learning Rate: 0.001
+Mean: 0.47345159489771377, Median: 0.4526495987576121, Num: 100
+Epoch: 38, Loss: 509.70446058000834, Learning Rate: 0.001
+Epoch: 39, Loss: 446.00557926722934, Learning Rate: 0.001
+Mean: 0.47335667791985003, Median: 0.46290669443232435, Num: 100
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1817.7915823800224, Learning Rate: 0.001
+Epoch: 1, Loss: 1219.2701677594866, Learning Rate: 0.001
+Mean: 0.31067174499036254, Median: 0.2628688469735475, Num: 100
+Epoch: 2, Loss: 1061.2861563546317, Learning Rate: 0.001
+Epoch: 3, Loss: 996.5395647321428, Learning Rate: 0.001
+Mean: 0.36112739524622556, Median: 0.3398840214091917, Num: 100
+Epoch: 4, Loss: 913.5814549037389, Learning Rate: 0.001
+Epoch: 5, Loss: 824.1396632603237, Learning Rate: 0.001
+Mean: 0.3847760775651168, Median: 0.35363984585799313, Num: 100
+Epoch: 6, Loss: 854.734936959403, Learning Rate: 0.001
+Epoch: 7, Loss: 801.529500906808, Learning Rate: 0.001
+Mean: 0.39788821820412223, Median: 0.37428601544173823, Num: 100
+Epoch: 8, Loss: 746.0637076241629, Learning Rate: 0.001
+Epoch: 9, Loss: 703.1541216169085, Learning Rate: 0.001
+Mean: 0.4041238114450712, Median: 0.4004461350841263, Num: 100
+Epoch: 10, Loss: 708.1820543561663, Learning Rate: 0.001
+Epoch: 11, Loss: 721.0645067487444, Learning Rate: 0.001
+Mean: 0.41551410508660963, Median: 0.3979686382200687, Num: 100
+Epoch: 12, Loss: 677.6959455217634, Learning Rate: 0.001
+Epoch: 13, Loss: 713.4898934500558, Learning Rate: 0.001
+Mean: 0.41904770175465295, Median: 0.42455230122482085, Num: 100
+Epoch: 14, Loss: 670.1875462123326, Learning Rate: 0.001
+Epoch: 15, Loss: 641.7827920096261, Learning Rate: 0.001
+Mean: 0.42292754809918565, Median: 0.3879027366957334, Num: 100
+Epoch: 16, Loss: 753.8067962646485, Learning Rate: 0.001
+Epoch: 17, Loss: 590.087837437221, Learning Rate: 0.001
+Mean: 0.4236306757598222, Median: 0.4074226481997657, Num: 100
+Epoch: 18, Loss: 597.3643075125558, Learning Rate: 0.001
+Epoch: 19, Loss: 593.3674678257534, Learning Rate: 0.001
+Mean: 0.4287157174484153, Median: 0.4147435180922586, Num: 100
+Epoch: 20, Loss: 586.0780835832868, Learning Rate: 0.001
+Epoch: 21, Loss: 565.7578669956753, Learning Rate: 0.001
+Mean: 0.430781905809638, Median: 0.4097485923642924, Num: 100
+Epoch: 22, Loss: 617.1633601597377, Learning Rate: 0.001
+Epoch: 23, Loss: 549.385380772182, Learning Rate: 0.001
+Mean: 0.43147756784080504, Median: 0.40507094450324693, Num: 100
+Epoch: 24, Loss: 575.1770795549666, Learning Rate: 0.001
+Epoch: 25, Loss: 609.6031441824776, Learning Rate: 0.001
+Mean: 0.4322952373046531, Median: 0.39731044513270064, Num: 100
+Epoch: 26, Loss: 615.7238691057478, Learning Rate: 0.001
+Epoch: 27, Loss: 490.68218383789065, Learning Rate: 0.001
+Mean: 0.42783088646461953, Median: 0.40116828141823874, Num: 100
+Epoch: 28, Loss: 524.8993262154715, Learning Rate: 0.001
+Epoch: 29, Loss: 465.1553497314453, Learning Rate: 0.001
+Mean: 0.43168750420869506, Median: 0.39633052817926995, Num: 100
+Epoch: 30, Loss: 513.7327056884766, Learning Rate: 0.001
+Epoch: 31, Loss: 516.1799111502511, Learning Rate: 0.001
+Mean: 0.4341359157219811, Median: 0.4147548553375745, Num: 100
+Epoch: 32, Loss: 521.7967557634626, Learning Rate: 0.001
+Epoch: 33, Loss: 468.4026742117746, Learning Rate: 0.001
+Mean: 0.4318583913574856, Median: 0.4110086898831862, Num: 100
+Epoch: 34, Loss: 546.5514362880161, Learning Rate: 0.001
+Epoch: 35, Loss: 476.9158475603376, Learning Rate: 0.001
+Mean: 0.43172581531038284, Median: 0.41866000082592664, Num: 100
+Epoch: 36, Loss: 488.7972893851144, Learning Rate: 0.001
+Epoch: 37, Loss: 454.8865938459124, Learning Rate: 0.001
+Mean: 0.43223961488986923, Median: 0.4165396787546818, Num: 100
+Epoch: 38, Loss: 477.43794926234654, Learning Rate: 0.001
+Epoch: 39, Loss: 442.3057867867606, Learning Rate: 0.001
+Mean: 0.4347156768795974, Median: 0.42540392549737716, Num: 100
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1962.336430140904, Learning Rate: 0.001
+Epoch: 1, Loss: 1295.8064121791294, Learning Rate: 0.001
+Mean: 0.30631580419768073, Median: 0.2541247439064104, Num: 100
+Epoch: 2, Loss: 1109.2646868024553, Learning Rate: 0.001
+Epoch: 3, Loss: 1026.7456804547992, Learning Rate: 0.001
+Mean: 0.35560699772533155, Median: 0.32293128687705164, Num: 100
+Epoch: 4, Loss: 934.6896859305245, Learning Rate: 0.001
+Epoch: 5, Loss: 838.4685843331473, Learning Rate: 0.001
+Mean: 0.379991957240897, Median: 0.3486460386286909, Num: 100
+Epoch: 6, Loss: 866.0100838797433, Learning Rate: 0.001
+Epoch: 7, Loss: 814.0396432059151, Learning Rate: 0.001
+Mean: 0.39181279296858273, Median: 0.3585884598145209, Num: 100
+Epoch: 8, Loss: 757.1764910016741, Learning Rate: 0.001
+Epoch: 9, Loss: 711.6060551234654, Learning Rate: 0.001
+Mean: 0.39617655867914287, Median: 0.3583605726519121, Num: 100
+Epoch: 10, Loss: 719.1645512172154, Learning Rate: 0.001
+Epoch: 11, Loss: 731.2026663643974, Learning Rate: 0.001
+Mean: 0.4117496291392737, Median: 0.39763632954415945, Num: 100
+Epoch: 12, Loss: 687.9512555803572, Learning Rate: 0.001
+Epoch: 13, Loss: 724.7712916782924, Learning Rate: 0.001
+Mean: 0.41601403661929337, Median: 0.4095625085081438, Num: 100
+Epoch: 14, Loss: 679.6856004987444, Learning Rate: 0.001
+Epoch: 15, Loss: 652.8145368303572, Learning Rate: 0.001
+Mean: 0.4159544351253092, Median: 0.4183915678449427, Num: 100
+Epoch: 16, Loss: 766.7649130684989, Learning Rate: 0.001
+Epoch: 17, Loss: 602.1227521623883, Learning Rate: 0.001
+Mean: 0.41987399193758873, Median: 0.41333449192243227, Num: 100
+Epoch: 18, Loss: 607.9434217180525, Learning Rate: 0.001
+Epoch: 19, Loss: 604.3923575265067, Learning Rate: 0.001
+Mean: 0.42067022354377154, Median: 0.4204121369986699, Num: 100
+Epoch: 20, Loss: 599.1850415910993, Learning Rate: 0.001
+Epoch: 21, Loss: 581.3883562360492, Learning Rate: 0.001
+Mean: 0.4225130327155257, Median: 0.42066254198324854, Num: 100
+Epoch: 22, Loss: 631.0561684744698, Learning Rate: 0.001
+Epoch: 23, Loss: 563.9164110456194, Learning Rate: 0.001
+Mean: 0.423132061723644, Median: 0.42322680832876725, Num: 100
+Epoch: 24, Loss: 587.4456965855189, Learning Rate: 0.001
+Epoch: 25, Loss: 622.5167994907924, Learning Rate: 0.001
+Mean: 0.4261673201028988, Median: 0.424566544448008, Num: 100
+Epoch: 26, Loss: 629.0537848336356, Learning Rate: 0.001
+Epoch: 27, Loss: 502.5919743129185, Learning Rate: 0.001
+Mean: 0.420741108431483, Median: 0.40580405864115815, Num: 100
+Epoch: 28, Loss: 539.5395852225167, Learning Rate: 0.001
+Epoch: 29, Loss: 480.569968523298, Learning Rate: 0.001
+Mean: 0.42419826653130194, Median: 0.41170566458004465, Num: 100
+Epoch: 30, Loss: 529.5480848039899, Learning Rate: 0.001
+Epoch: 31, Loss: 532.5315059116908, Learning Rate: 0.001
+Mean: 0.429038882664749, Median: 0.40993548270730534, Num: 100
+Epoch: 32, Loss: 538.6282832554408, Learning Rate: 0.001
+Epoch: 33, Loss: 483.295671081543, Learning Rate: 0.001
+Mean: 0.42834590820784796, Median: 0.4048741846399162, Num: 100
+Epoch: 34, Loss: 562.3262769426618, Learning Rate: 0.001
+Epoch: 35, Loss: 489.4033477783203, Learning Rate: 0.001
+Mean: 0.43385623671742657, Median: 0.43150799942936413, Num: 100
+Epoch: 36, Loss: 502.53526175362725, Learning Rate: 0.001
+Epoch: 37, Loss: 469.34088156563894, Learning Rate: 0.001
+Mean: 0.42845604772034496, Median: 0.4130442778610213, Num: 100
+Epoch: 38, Loss: 493.13622131347654, Learning Rate: 0.001
+Epoch: 39, Loss: 459.44076984950476, Learning Rate: 0.001
+Mean: 0.42939429436651777, Median: 0.41310199397928216, Num: 100
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1770.7411891392298, Learning Rate: 0.001
+Epoch: 1, Loss: 1120.9824523925781, Learning Rate: 0.001
+Mean: 0.3461989013351585, Median: 0.3228111226142526, Num: 100
+Epoch: 2, Loss: 1031.1708818708148, Learning Rate: 0.001
+Epoch: 3, Loss: 970.1211652483258, Learning Rate: 0.001
+Mean: 0.3909894485582746, Median: 0.37155813544774163, Num: 100
+Epoch: 4, Loss: 897.1710898263113, Learning Rate: 0.001
+Epoch: 5, Loss: 929.0790056501116, Learning Rate: 0.001
+Mean: 0.41095450208103385, Median: 0.4080819223266555, Num: 100
+Epoch: 6, Loss: 823.594380405971, Learning Rate: 0.001
+Epoch: 7, Loss: 808.9519740513393, Learning Rate: 0.001
+Mean: 0.42216986613251223, Median: 0.4034519333045581, Num: 100
+Epoch: 8, Loss: 777.3065447126116, Learning Rate: 0.001
+Epoch: 9, Loss: 685.9015424455915, Learning Rate: 0.001
+Mean: 0.4294487836544157, Median: 0.4207879318357062, Num: 100
+Epoch: 10, Loss: 748.7324855259486, Learning Rate: 0.001
+Epoch: 11, Loss: 683.0530539376396, Learning Rate: 0.001
+Mean: 0.4327907949133032, Median: 0.42417149147282884, Num: 100
+Epoch: 12, Loss: 692.6329088483538, Learning Rate: 0.001
+Epoch: 13, Loss: 624.8208980015346, Learning Rate: 0.001
+Mean: 0.4380601662733863, Median: 0.4286211907076347, Num: 100
+Epoch: 14, Loss: 664.5108673095704, Learning Rate: 0.001
+Epoch: 15, Loss: 710.1570408412389, Learning Rate: 0.001
+Mean: 0.4372632174938349, Median: 0.4291839978046844, Num: 100
+Epoch: 16, Loss: 619.4440442766462, Learning Rate: 0.001
+Epoch: 17, Loss: 661.3807438441685, Learning Rate: 0.001
+Mean: 0.4376308427977667, Median: 0.4351593077836903, Num: 100
+Epoch: 18, Loss: 617.147654070173, Learning Rate: 0.001
+Epoch: 19, Loss: 547.7875789097377, Learning Rate: 0.001
+Mean: 0.4397093381306464, Median: 0.43291566745778154, Num: 100
+Epoch: 20, Loss: 633.0608771187918, Learning Rate: 0.001
+Epoch: 21, Loss: 657.0561226981026, Learning Rate: 0.001
+Mean: 0.4428438421027785, Median: 0.43944893638336435, Num: 100
+Epoch: 22, Loss: 587.9603720528739, Learning Rate: 0.001
+Epoch: 23, Loss: 523.4128034319197, Learning Rate: 0.001
+Mean: 0.4438952711582313, Median: 0.44267699373504976, Num: 100
+Epoch: 24, Loss: 573.9410317557199, Learning Rate: 0.001
+Epoch: 25, Loss: 537.898384312221, Learning Rate: 0.001
+Mean: 0.4448421943015417, Median: 0.4381083318489951, Num: 100
+Epoch: 26, Loss: 502.6424161638532, Learning Rate: 0.001
+Epoch: 27, Loss: 551.1892015729632, Learning Rate: 0.001
+Mean: 0.44132384096832683, Median: 0.4379452753629243, Num: 100
+Epoch: 28, Loss: 510.6052302769252, Learning Rate: 0.001
+Epoch: 29, Loss: 547.2500732421875, Learning Rate: 0.001
+Mean: 0.44815272579819543, Median: 0.44082227957945286, Num: 100
+Epoch: 30, Loss: 485.7566305977958, Learning Rate: 0.001
+Epoch: 31, Loss: 481.6874404907227, Learning Rate: 0.001
+Mean: 0.44628196230492057, Median: 0.42892582025955317, Num: 100
+Epoch: 32, Loss: 473.5506511143276, Learning Rate: 0.001
+Epoch: 33, Loss: 500.7748282296317, Learning Rate: 0.001
+Mean: 0.4485356195106658, Median: 0.4430448173617827, Num: 100
+Epoch: 34, Loss: 480.45777609688895, Learning Rate: 0.001
+Epoch: 35, Loss: 481.1146968296596, Learning Rate: 0.001
+Mean: 0.44481207959662483, Median: 0.4316807566435665, Num: 100
+Epoch: 36, Loss: 430.76510554722375, Learning Rate: 0.001
+Epoch: 37, Loss: 490.91676047188895, Learning Rate: 0.001
+Mean: 0.44745344747047633, Median: 0.42109035700763703, Num: 100
+Epoch: 38, Loss: 436.9452431815011, Learning Rate: 0.001
+Epoch: 39, Loss: 408.1419695172991, Learning Rate: 0.001
+Mean: 0.4510880621536675, Median: 0.43688487232451717, Num: 100
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/warmachine/miniconda3/envs/deep_gp/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1946.8067060198102, Learning Rate: 0.001
+Epoch: 1, Loss: 1190.9189732142856, Learning Rate: 0.001
+Mean: 0.34384600558747125, Median: 0.31703359534960157, Num: 100
+Epoch: 2, Loss: 1075.752570452009, Learning Rate: 0.001
+Epoch: 3, Loss: 996.3238176618304, Learning Rate: 0.001
+Mean: 0.38576590925365734, Median: 0.3570202570223702, Num: 100
+Epoch: 4, Loss: 914.7616694859096, Learning Rate: 0.001
+Epoch: 5, Loss: 942.9757306780134, Learning Rate: 0.001
+Mean: 0.4067869622409796, Median: 0.3873803178742488, Num: 100
+Epoch: 6, Loss: 833.6666974748883, Learning Rate: 0.001
+Epoch: 7, Loss: 818.6748609270368, Learning Rate: 0.001
+Mean: 0.41353045042316233, Median: 0.3978765495203974, Num: 100
+Epoch: 8, Loss: 787.8118142264229, Learning Rate: 0.001
+Epoch: 9, Loss: 693.2553584507533, Learning Rate: 0.001
+Mean: 0.419418955597909, Median: 0.41610264767293303, Num: 100
+Epoch: 10, Loss: 757.7005589076451, Learning Rate: 0.001
+Epoch: 11, Loss: 691.6480752127511, Learning Rate: 0.001
+Mean: 0.42473355961624515, Median: 0.4140150415470894, Num: 100
+Epoch: 12, Loss: 699.8350494384765, Learning Rate: 0.001
+Epoch: 13, Loss: 635.5865875244141, Learning Rate: 0.001
+Mean: 0.4273869953217009, Median: 0.41994484288988065, Num: 100
+Epoch: 14, Loss: 673.9904153006418, Learning Rate: 0.001
+Epoch: 15, Loss: 721.0317456926618, Learning Rate: 0.001
+Mean: 0.4244512461658559, Median: 0.4221690163053902, Num: 100
+Epoch: 16, Loss: 631.0436423165457, Learning Rate: 0.001
+Epoch: 17, Loss: 671.5552459716797, Learning Rate: 0.001
+Mean: 0.4276402832923301, Median: 0.42716419287688784, Num: 100
+Epoch: 18, Loss: 628.1093510219029, Learning Rate: 0.001
+Epoch: 19, Loss: 560.379265485491, Learning Rate: 0.001
+Mean: 0.42921723606284296, Median: 0.4362943779456241, Num: 100
+Epoch: 20, Loss: 645.1872126988002, Learning Rate: 0.001
+Epoch: 21, Loss: 671.375537109375, Learning Rate: 0.001
+Mean: 0.4322870890195712, Median: 0.43225759747739045, Num: 100
+Epoch: 22, Loss: 600.485846383231, Learning Rate: 0.001
+Epoch: 23, Loss: 536.5168504987445, Learning Rate: 0.001
+Mean: 0.43153120281193674, Median: 0.43073796140014214, Num: 100
+Epoch: 24, Loss: 586.2896214076451, Learning Rate: 0.001
+Epoch: 25, Loss: 551.7952510288784, Learning Rate: 0.001
+Mean: 0.43401608957264926, Median: 0.4412506150919553, Num: 100
+Epoch: 26, Loss: 515.9537979125977, Learning Rate: 0.001
+Epoch: 27, Loss: 566.0462624686105, Learning Rate: 0.001
+Mean: 0.4331246445753258, Median: 0.4371982965725515, Num: 100
+Epoch: 28, Loss: 524.1448063441685, Learning Rate: 0.001
+Epoch: 29, Loss: 562.4375074114118, Learning Rate: 0.001
+Mean: 0.4329204661887497, Median: 0.4338319508188804, Num: 100
+Epoch: 30, Loss: 500.33885541643417, Learning Rate: 0.001
+Epoch: 31, Loss: 497.54295567103793, Learning Rate: 0.001
+Mean: 0.43155472359746766, Median: 0.43682572244697515, Num: 100
+Epoch: 32, Loss: 488.99324994768415, Learning Rate: 0.001
+Epoch: 33, Loss: 515.9156550816127, Learning Rate: 0.001
+Mean: 0.43415836236201466, Median: 0.43249658279415637, Num: 100
+Epoch: 34, Loss: 496.87518245152063, Learning Rate: 0.001
+Epoch: 35, Loss: 496.54543064662386, Learning Rate: 0.001
+Mean: 0.4344193601248227, Median: 0.44249681483283976, Num: 100
+Epoch: 36, Loss: 446.44986921037946, Learning Rate: 0.001
+Epoch: 37, Loss: 506.7180106026786, Learning Rate: 0.001
+Mean: 0.43672001435339325, Median: 0.44465051241368914, Num: 100
+Epoch: 38, Loss: 454.3828340802874, Learning Rate: 0.001
+Epoch: 39, Loss: 424.6807867867606, Learning Rate: 0.001
+Mean: 0.4405241123766839, Median: 0.45310152852379193, Num: 100
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FP, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 1935.975031389509, Learning Rate: 0.001
+Epoch: 1, Loss: 1190.754798235212, Learning Rate: 0.001
+Mean: 0.36011609577090925, Median: 0.33300683113966206, Num: 100
+Epoch: 2, Loss: 1065.0292428152902, Learning Rate: 0.001
+Epoch: 3, Loss: 999.6943211146763, Learning Rate: 0.001
+Mean: 0.4112666090229864, Median: 0.3997156818011517, Num: 100
+Epoch: 4, Loss: 938.8897548130581, Learning Rate: 0.001
+Epoch: 5, Loss: 815.8230194091797, Learning Rate: 0.001
+Mean: 0.44003885227846673, Median: 0.4535641211242747, Num: 100
+Epoch: 6, Loss: 824.3436527797154, Learning Rate: 0.001
+Epoch: 7, Loss: 855.2196493966239, Learning Rate: 0.001
+Mean: 0.4543759882770611, Median: 0.4772610259997532, Num: 100
+Epoch: 8, Loss: 801.6909096854074, Learning Rate: 0.001
+Epoch: 9, Loss: 787.3595467703683, Learning Rate: 0.001
+Mean: 0.4615380647461476, Median: 0.48065065696932086, Num: 100
+Epoch: 10, Loss: 707.7149536132813, Learning Rate: 0.001
+Epoch: 11, Loss: 705.6330671037946, Learning Rate: 0.001
+Mean: 0.46475786701286315, Median: 0.49033083908929825, Num: 100
+Epoch: 12, Loss: 712.7517438616071, Learning Rate: 0.001
+Epoch: 13, Loss: 665.3614737374442, Learning Rate: 0.001
+Mean: 0.4756725082686372, Median: 0.5148667577546351, Num: 100
+Epoch: 14, Loss: 729.4775338309151, Learning Rate: 0.001
+Epoch: 15, Loss: 654.6441367013114, Learning Rate: 0.001
+Mean: 0.48631184351696943, Median: 0.5231685771264887, Num: 100
+Epoch: 16, Loss: 700.9657893589565, Learning Rate: 0.001
+Epoch: 17, Loss: 627.3300258091518, Learning Rate: 0.001
+Mean: 0.4815117251400193, Median: 0.5050880387104162, Num: 100
+Epoch: 18, Loss: 598.880390712193, Learning Rate: 0.001
+Epoch: 19, Loss: 617.723932320731, Learning Rate: 0.001
+Mean: 0.479433762611317, Median: 0.5050488398543274, Num: 100
+Epoch: 20, Loss: 631.8796120779855, Learning Rate: 0.001
+Epoch: 21, Loss: 543.0682717459542, Learning Rate: 0.001
+Mean: 0.4861465777726714, Median: 0.5120145067408881, Num: 100
+Epoch: 22, Loss: 581.9582081386021, Learning Rate: 0.001
+Epoch: 23, Loss: 573.7432782854353, Learning Rate: 0.001
+Mean: 0.4888180041072303, Median: 0.5202468083149245, Num: 100
+Epoch: 24, Loss: 587.779449898856, Learning Rate: 0.001
+Epoch: 25, Loss: 578.3466321672712, Learning Rate: 0.001
+Mean: 0.49344283773462694, Median: 0.548840376545219, Num: 100
+Epoch: 26, Loss: 535.6338963099888, Learning Rate: 0.001
+Epoch: 27, Loss: 521.9833090645926, Learning Rate: 0.001
+Mean: 0.4938608771307627, Median: 0.5298908911591245, Num: 100
+Epoch: 28, Loss: 546.7659528459822, Learning Rate: 0.001
+Epoch: 29, Loss: 591.9356944492885, Learning Rate: 0.001
+Mean: 0.4961285244893204, Median: 0.5339747001380128, Num: 100
+Epoch: 30, Loss: 472.3847920009068, Learning Rate: 0.001
+Epoch: 31, Loss: 494.0470646449498, Learning Rate: 0.001
+Mean: 0.5017946673206066, Median: 0.5310184297068323, Num: 100
+Epoch: 32, Loss: 491.19670955113, Learning Rate: 0.001
+Epoch: 33, Loss: 498.1868918282645, Learning Rate: 0.001
+Mean: 0.49745359056994476, Median: 0.5222339408798549, Num: 100
+Epoch: 34, Loss: 477.488230242048, Learning Rate: 0.001
+Epoch: 35, Loss: 532.9697265625, Learning Rate: 0.001
+Mean: 0.4998402910835327, Median: 0.5384371365309859, Num: 100
+Epoch: 36, Loss: 471.27542790004185, Learning Rate: 0.001
+Epoch: 37, Loss: 460.99396340506416, Learning Rate: 0.001
+Mean: 0.5033204006662967, Median: 0.5372567603693188, Num: 100
+Epoch: 38, Loss: 463.38984636579244, Learning Rate: 0.001
+Epoch: 39, Loss: 463.9655125209263, Learning Rate: 0.001
+Mean: 0.5048301032202905, Median: 0.5273234807237198, Num: 100
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/EDKT_data/Data_FP_pQSAR.py:103: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789560443/work/torch/csrc/utils/tensor_new.cpp:278.)
+  return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+/home/warmachine/Desktop/Code_for_publication/main.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  r2 = np.corrcoef(torch.tensor(y_label).reshape(-1), prediction.detach().cpu().numpy().reshape(-1))[0,1]**2
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+10
+Epoch: 0, Loss: 2049.426592145647, Learning Rate: 0.001
+Epoch: 1, Loss: 1266.9130824497768, Learning Rate: 0.001
+Mean: 0.3602170096197969, Median: 0.35308058897255423, Num: 100
+Epoch: 2, Loss: 1110.5149169921874, Learning Rate: 0.001
+Epoch: 3, Loss: 1026.688027518136, Learning Rate: 0.001
+Mean: 0.4138268533085656, Median: 0.424453909353416, Num: 100
+Epoch: 4, Loss: 956.6841923304967, Learning Rate: 0.001
+Epoch: 5, Loss: 827.5752733503069, Learning Rate: 0.001
+Mean: 0.43665519372127604, Median: 0.46701908583411283, Num: 100
+Epoch: 6, Loss: 834.6236567905971, Learning Rate: 0.001
+Epoch: 7, Loss: 862.8748883928571, Learning Rate: 0.001
+Mean: 0.45111521373417857, Median: 0.4903243940443004, Num: 100
+Epoch: 8, Loss: 812.3492327008929, Learning Rate: 0.001
+Epoch: 9, Loss: 795.9275708879743, Learning Rate: 0.001
+Mean: 0.4572404006585921, Median: 0.4807530620318481, Num: 100
+Epoch: 10, Loss: 713.4836765834264, Learning Rate: 0.001
+Epoch: 11, Loss: 712.1597599574498, Learning Rate: 0.001
+Mean: 0.4591272853941244, Median: 0.4865747202810517, Num: 100
+Epoch: 12, Loss: 719.6512856619698, Learning Rate: 0.001
+Epoch: 13, Loss: 674.5295610700335, Learning Rate: 0.001
+Mean: 0.47205429035893554, Median: 0.5170503664938148, Num: 100
+Epoch: 14, Loss: 737.6507154192243, Learning Rate: 0.001
+Epoch: 15, Loss: 663.6565303257534, Learning Rate: 0.001
+Mean: 0.48423591618096085, Median: 0.52556144612951, Num: 100
+Epoch: 16, Loss: 710.3642870221819, Learning Rate: 0.001
+Epoch: 17, Loss: 638.0486511230469, Learning Rate: 0.001
+Mean: 0.4779366250461146, Median: 0.5298448565581537, Num: 100
+Epoch: 18, Loss: 608.0974169049945, Learning Rate: 0.001
+Epoch: 19, Loss: 626.5221845354353, Learning Rate: 0.001
+Mean: 0.4743133942928535, Median: 0.5041439876464962, Num: 100
+Epoch: 20, Loss: 642.3116141183036, Learning Rate: 0.001
+Epoch: 21, Loss: 554.2975143432617, Learning Rate: 0.001
+Mean: 0.481180260109317, Median: 0.5317840400762499, Num: 100
+Epoch: 22, Loss: 591.4254760742188, Learning Rate: 0.001
+Epoch: 23, Loss: 585.0707824707031, Learning Rate: 0.001
+Mean: 0.48054036681156115, Median: 0.5308338322787642, Num: 100
+Epoch: 24, Loss: 598.9283464704241, Learning Rate: 0.001
+Epoch: 25, Loss: 589.0817858014788, Learning Rate: 0.001
+Mean: 0.49270348804999303, Median: 0.5407070179100444, Num: 100
+Epoch: 26, Loss: 547.6431156703404, Learning Rate: 0.001
+Epoch: 27, Loss: 533.4126970563616, Learning Rate: 0.001
+Mean: 0.48511330742200337, Median: 0.5303360810391943, Num: 100
+Epoch: 28, Loss: 558.6720694405692, Learning Rate: 0.001
+Epoch: 29, Loss: 603.4316144670759, Learning Rate: 0.001
+Mean: 0.48877629161343633, Median: 0.5213537125707624, Num: 100
+Epoch: 30, Loss: 484.579759652274, Learning Rate: 0.001
+Epoch: 31, Loss: 506.7832170758929, Learning Rate: 0.001
+Mean: 0.4908260313909038, Median: 0.5190885372168004, Num: 100
+Epoch: 32, Loss: 506.2734701974051, Learning Rate: 0.001
+Epoch: 33, Loss: 511.51148420061384, Learning Rate: 0.001
+Mean: 0.48899340594429097, Median: 0.5213786235386193, Num: 100
+Epoch: 34, Loss: 491.1178941999163, Learning Rate: 0.001
+Epoch: 35, Loss: 545.702592250279, Learning Rate: 0.001
+Mean: 0.49115519124915247, Median: 0.5279723983300908, Num: 100
+Epoch: 36, Loss: 482.8794692993164, Learning Rate: 0.001
+Epoch: 37, Loss: 473.8240439278739, Learning Rate: 0.001
+Mean: 0.49579302341738746, Median: 0.5306698612104312, Num: 100
+Epoch: 38, Loss: 477.22805568150113, Learning Rate: 0.001
+Epoch: 39, Loss: 477.9154591151646, Learning Rate: 0.001
+Mean: 0.4958301138397712, Median: 0.5221895247457221, Num: 100
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False
+4176
+num_encoder: 50, methods: FPRGB, dataset: pQSAR, NCL: False

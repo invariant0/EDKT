@@ -18,11 +18,12 @@ def split_list(lst, ratio=0.5):
 
 class deep_gp_data:
 
-    def __init__(self, file_path, file_path_test):
+    def __init__(self, file_path, file_path_test, args):
         with open(file_path, 'rb') as f:
             self.all_data = pickle.load(f)
         with open(file_path_test, 'rb') as f:
             self.all_data_test = pickle.load(f)
+        self.args = args
     
     def tensorize(self, assay_id, sample_num, r_seed):
         tuple_ls = []
@@ -30,10 +31,16 @@ class deep_gp_data:
         y_tensor_query = []
         x_tensor_support = []
         y_tensor_support = []
-        for experiment in self.all_data.assay_dic[assay_id].experiments:
-            x = experiment.fp1
-            y = torch.tensor(experiment.expt_pIC50)
-            tuple_ls.append((x, y))
+        if 'augment' in self.args.encode_method:
+            for experiment in self.all_data.assay_dic[assay_id].experiments:
+                x = experiment.fp2
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y))
+        else:
+            for experiment in self.all_data.assay_dic[assay_id].experiments:
+                x = experiment.fp1
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y))
         
         support_ls, query_ls = split_list(tuple_ls)
         if len(support_ls) > int(sample_num/2):
@@ -55,10 +62,16 @@ class deep_gp_data:
         x_tensor_support = []
         y_tensor_support = []
         tuple_ls = []
-        for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
-            x = experiment.fp1
-            y = torch.tensor(experiment.expt_pIC50)
-            tuple_ls.append((x, y, experiment.test_flag_fold))
+        if 'augment' in self.args.encode_method:
+            for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
+                x = experiment.fp2
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y, experiment.test_flag_fold))
+        else:
+            for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
+                x = experiment.fp1
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y, experiment.test_flag_fold))
         
         support_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Train']
         query_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Test']

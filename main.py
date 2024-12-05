@@ -168,7 +168,7 @@ def main_worker(rank, world_size, args):
             eval_assay_ls = assay_id_train_test_split['test_assays']
             data_path = '../Data_for_publication/fsmol_multifp/all_data_fp.pkl'
             data_path_test = '../Data_for_publication/fsmol_multifp/all_data_fp_test_10fold_32.pkl'
-            data = deep_gp_data(data_path, data_path_test)
+            data = deep_gp_data(data_path, data_path_test, args)
         elif args.dataset == 'pQSAR':
             assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split[args.group_id]['train_assays']
