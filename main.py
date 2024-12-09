@@ -97,7 +97,7 @@ def train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, r
     if 'FP' in args.encode_method:
         itter_num = 40
     elif 'Graph' in args.encode_method:
-        itter_num = 80
+        itter_num = 400
     for epoch in range(itter_num):
         train_data_loader.sampler.set_epoch(epoch)
         dataset_train.set_epoch(epoch)
@@ -164,24 +164,24 @@ def main_worker(rank, world_size, args):
         if args.dataset == 'fsmol':
             assay_id_train_test_split = np.load('../Data_for_publication/fsmol_multifp/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
-            print(len(train_assay_ls))
-            eval_assay_ls = assay_id_train_test_split['test_assays']
+            valid_assay_ls = assay_id_train_test_split['valid_assays']
+            test_assay_ls = assay_id_train_test_split['test_assays']
             data_path = '../Data_for_publication/fsmol_multifp/all_data_fp.pkl'
             data_path_test = '../Data_for_publication/fsmol_multifp/all_data_fp_test_10fold_32.pkl'
             data = deep_gp_data(data_path, data_path_test, args)
         elif args.dataset == 'pQSAR':
-            assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle=True)
-            train_assay_ls = assay_id_train_test_split[args.group_id]['train_assays']
-            print(len(train_assay_ls))
-            eval_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
+            assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/pQSAR_split_dic.pkl', allow_pickle=True)
+            train_assay_ls = list(assay_id_train_test_split[args.group_id]['train'])
+            valid_assay_ls = list(assay_id_train_test_split[args.group_id]['val'])
+            test_assay_ls = list(assay_id_train_test_split[args.group_id]['test'])
             data_path = '../Data_for_publication/pQSAR/ci9b00375_si_002.txt'
             data = deep_gp_data(data_path)
     elif 'Graph' in args.encode_method:
         if args.dataset == 'fsmol':
             assay_id_train_test_split = np.load('../Data_for_publication/fsmol_multifp/split_dic.pkl', allow_pickle=True)
             train_assay_ls = assay_id_train_test_split['train_assays']
-            print(len(train_assay_ls))
-            eval_assay_ls = assay_id_train_test_split['test_assays']
+            valid_assay_ls = assay_id_train_test_split['valid_assays']
+            test_assay_ls = assay_id_train_test_split['test_assays']
             data_path = '../Data_for_publication/fsmol_multifp/all_data_graph.pkl'
             data_path_test = '../Data_for_publication/fsmol_multifp/all_data_graph_test_10fold_32.pkl'
             data = deep_gp_data(data_path, data_path_test)
@@ -189,24 +189,25 @@ def main_worker(rank, world_size, args):
             # assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/split_dic.pkl', allow_pickle = True)
             # included_assay = np.load('../Data_for_publication/pQSAR/included_assay.pkl', allow_pickle = True)
             # train_assay_ls = assay_id_train_test_split[args.group_id]['train_assays']
-            # eval_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
+            # test_assay_ls = assay_id_train_test_split[args.group_id]['test_assays']
             # train_assay_ls = [x for x in train_assay_ls if x in included_assay]
-            # eval_assay_ls = [x for x in eval_assay_ls if x in included_assay]
+            # test_assay_ls = [x for x in test_assay_ls if x in included_assay]
             assay_id_train_test_split = np.load('../Data_for_publication/pQSAR/pQSAR_split_dic.pkl', allow_pickle=True)
             train_assay_ls = list(assay_id_train_test_split[args.group_id]['train'])
-            eval_assay_ls = list(assay_id_train_test_split[args.group_id]['test'])
+            valid_assay_ls = list(assay_id_train_test_split[args.group_id]['val'])
+            test_assay_ls = list(assay_id_train_test_split[args.group_id]['test'])
             included_assay = np.load('../Data_for_publication/pQSAR/included_assay.pkl', allow_pickle = True)
             train_assay_ls = [x for x in train_assay_ls if x in included_assay]
-            eval_assay_ls = [x for x in eval_assay_ls if x in included_assay]
-            print(len(train_assay_ls))
+            test_assay_ls = [x for x in test_assay_ls if x in included_assay]
             data_path = '../Data_for_publication/pQSAR/ci9b00375_si_002.txt'
             data = deep_gp_data(data_path)
     print(f"num_encoder: {args.num_encoder}, methods: {args.encode_method}, dataset: {args.dataset}, NCL: {args.allow_NCL}")
+    print(f'training tasks num: {len(train_assay_ls)}, valid tasks num: {len(valid_assay_ls)}, test tasks num: {len(test_assay_ls)}')
     model = deep_ensemble.ensemble_deep_gp(args)
     model = model.to(device)
     model = DDP(model, device_ids=[rank])
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-    train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, rank, world_size)
+    train_epoch(model, data, train_assay_ls, test_assay_ls, optimizer, device, rank, world_size)
     cleanup()
 
 def main():

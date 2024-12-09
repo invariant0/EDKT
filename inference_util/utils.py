@@ -1,6 +1,11 @@
+import torch 
 import argparse
-
-
+import importlib
+from deep_ensemble import deep_ensemble_FP as deep_ensemble_MLP
+from deep_ensemble import deep_ensemble_Graph as deep_ensemble_Graph
+from collections import OrderedDict
+importlib.reload(deep_ensemble_MLP)
+importlib.reload(deep_ensemble_Graph)
 
 def parse_args(args_list=None):
     parser = argparse.ArgumentParser(description="DeepGP Training Script")
@@ -61,3 +66,56 @@ def parse_args(args_list=None):
     return args
 
 
+def load_fp_model(model_args):
+    try:
+        fp_model = deep_ensemble_MLP.ensemble_deep_gp(model_args)
+        # Load state dict
+        if model_args.dataset == 'fsmol':
+            model_path = f'../Model_for_publication/Dataset:{model_args.dataset}_Method:{model_args.encode_method}_Num:{model_args.num_encoder}_NCL:{model_args.allow_NCL}_seed:{model_args.random_seed}.pth'
+        elif model_args.dataset == 'pQSAR':
+            model_path = f'../Model_for_publication/Dataset:{model_args.dataset}_Groupid:{model_args.group_id}_Method:{model_args.encode_method}_Num:{model_args.num_encoder}_NCL:{model_args.allow_NCL}_seed:{model_args.random_seed}.pth'
+        state_dict = torch.load(model_path)
+        # Process state dict
+        new_state_dict = OrderedDict()
+        for k, v in state_dict.items():
+            name = k[7:] if k.startswith('module.') else k
+            new_state_dict[name] = v
+        # Load and verify
+        fp_model.load_state_dict(new_state_dict)
+        fp_model.eval()
+        print(f"✓ FP Model loaded successfully from {model_path}")
+        return fp_model
+        
+    except Exception as e:
+        print(f"✗ Failed to load FP model: {str(e)}")
+        return None
+
+def load_graph_model(model_args):
+    try:
+        graph_model = deep_ensemble_Graph.ensemble_deep_gp(model_args)
+        
+        # Load state dict
+        if model_args.dataset == 'fsmol':
+            model_path = f'../Model_for_publication/Dataset:{model_args.dataset}_Method:{model_args.encode_method}_Num:{model_args.num_encoder}_NCL:{model_args.allow_NCL}_seed:{model_args.random_seed}.pth'
+        elif model_args.dataset == 'pQSAR':
+            model_path = f'../Model_for_publication/Dataset:{model_args.dataset}_Groupid:{model_args.group_id}_Method:{model_args.encode_method}_Num:{model_args.num_encoder}_NCL:{model_args.allow_NCL}_seed:{model_args.random_seed}.pth'
+
+        state_dict = torch.load(model_path)
+        
+        # Process state dict
+        new_state_dict = OrderedDict()
+        for k, v in state_dict.items():
+            name = k[7:] if k.startswith('module.') else k
+            new_state_dict[name] = v
+            
+        # Load and verify
+        graph_model.load_state_dict(new_state_dict)
+        graph_model.eval()
+        
+        print(f"✓ Model loaded successfully from {model_path}")
+        return graph_model
+        
+    except Exception as e:
+        # print(f"✗ Failed to load model: {str(e)}")
+        return None
+    

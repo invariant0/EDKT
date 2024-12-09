@@ -101,6 +101,27 @@ class deep_gp_data:
                 y_tensor_support.append(y)
                 support_num += 1
         return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query)
+    def tensorize_valid_random(self, assay_id, test_num, r_seed):
+        x_y_ls = []
+        for experiment in self.all_data.assay_dic[assay_id].experiments:
+            cpd_id = experiment.cpd_id
+            x = self.fp_dic[cpd_id]
+            y = torch.tensor(experiment.expt_pIC50)
+            if cpd_id == 'CHEMBL542448' or cpd_id == 'CHEMBL69710':
+                continue
+            x_y_ls.append((x, y))
+        random.seed(r_seed)
+        index_ls = [idx for idx in range(len(x_y_ls))]
+        random.shuffle(index_ls)
+        x_y_ls = [x_y_ls[idx] for idx in index_ls]
+        x_y_ls = x_y_ls[:test_num*2]
+        support_num = int(len(x_y_ls)*0.75)
+        querry_num = len(x_y_ls) - support_num
+        x_tensor_support = torch.tensor([x_y_ls[i][0] for i in range(support_num)]).float()
+        y_tensor_support = torch.tensor([x_y_ls[i][1] for i in range(support_num)])
+        x_tensor_query = torch.tensor([x_y_ls[i][0] for i in range(support_num, support_num+querry_num)]).float()
+        y_tensor_query = torch.tensor([x_y_ls[i][1] for i in range(support_num, support_num+querry_num)])
+        return x_tensor_support, y_tensor_support, x_tensor_query, y_tensor_query
     def tensorize_test_shap(self, assay_id, test_num):
         x_tensor_query = []
         y_tensor_query = []

@@ -125,3 +125,23 @@ class deep_gp_data:
                 label_data_support_return.append(experiment.expt_pIC50)
                 support_num += 1
         return graph_data_support, label_data_support_return, graph_data_query, label_data_query_return
+    def smiles_to_graph_valid_all_random(self, assay_id, test_num, r_seed):
+        graph_data_support, graph_data_query, label_data_support_return, label_data_query_return = [], [], [], []
+        graph_label_data_ls = []
+        for experiment in self.all_data.assay_dic[assay_id].experiments:
+            cpd_id = experiment.cpd_id
+            if cpd_id == 'CHEMBL542448' or cpd_id == 'CHEMBL69710':# or cpd_id not in self.small_cpd_id:
+                continue
+            graph_label_data_ls.append((self.get_mol_graph[cpd_id], experiment.expt_pIC50))
+        random.seed(r_seed)
+        index_ls = [idx for idx in range(len(graph_label_data_ls))]
+        random.shuffle(index_ls)
+        graph_label_data_ls = [graph_label_data_ls[idx] for idx in index_ls]
+        graph_label_data_ls = graph_label_data_ls[:test_num*2]
+        support_num = int(len(graph_label_data_ls) * 0.75)
+        query_num = len(graph_label_data_ls) - support_num
+        graph_data_support = [graph_label_data_ls[i][0] for i in range(support_num)]
+        label_data_support = [graph_label_data_ls[i][1] for i in range(support_num)]
+        graph_data_query = [graph_label_data_ls[i][0] for i in range(support_num, support_num+query_num)]
+        label_data_query = [graph_label_data_ls[i][1] for i in range(support_num, support_num+query_num)]
+        return graph_data_support, label_data_support, graph_data_query, label_data_query
