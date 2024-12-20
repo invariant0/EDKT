@@ -81,3 +81,35 @@ class deep_gp_data:
         x_tensor_support = np.array([support_tuple[0] for support_tuple in support_ls])
         y_tensor_support = np.array([support_tuple[1] for support_tuple in support_ls])
         return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support).float(), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query).float()
+    
+    def tensorize_test_subsample(self, assay_id, fold_id, sample_num, r_seed):
+        
+        x_tensor_query = []
+        y_tensor_query = []
+        x_tensor_support = []
+        y_tensor_support = []
+        tuple_ls = []
+        if 'augment' in self.args.encode_method:
+            for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
+                x = experiment.fp2
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y, experiment.test_flag_fold))
+        else:
+            for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
+                x = experiment.fp1
+                y = torch.tensor(experiment.expt_pIC50)
+                tuple_ls.append((x, y, experiment.test_flag_fold))
+        
+        support_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Train']
+        
+        random.seed(r_seed)
+        random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        support_ls = [support_ls[i] for i in random_idx]
+
+        query_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Test']
+        
+        x_tensor_query = np.array([query_tuple[0] for query_tuple in query_ls])
+        y_tensor_query = np.array([query_tuple[1] for query_tuple in query_ls])
+        x_tensor_support = np.array([support_tuple[0] for support_tuple in support_ls])
+        y_tensor_support = np.array([support_tuple[1] for support_tuple in support_ls])
+        return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support).float(), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query).float()

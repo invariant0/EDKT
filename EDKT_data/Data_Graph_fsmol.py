@@ -70,3 +70,25 @@ class deep_gp_data:
         label_data_query_return = [query_tuple[1] for query_tuple in query_ls]
         
         return graph_data_support_return, label_data_support_return, graph_data_query_return, label_data_query_return
+    
+    def smiles_to_graph_test_subsample(self, assay_id, fold_id, sample_num, r_seed):
+        tuple_ls = []
+        for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
+            graph_temp = experiment.fp1
+            y = torch.tensor(experiment.expt_pIC50).float()
+            tuple_ls.append((graph_temp, y, experiment.test_flag_fold))
+        
+        support_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Train']
+        
+        random.seed(r_seed)
+        random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        support_ls = [support_ls[i] for i in random_idx]
+
+        query_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Test']
+
+        graph_data_support_return = [support_tuple[0] for support_tuple in support_ls]
+        label_data_support_return = [support_tuple[1] for support_tuple in support_ls]
+        graph_data_query_return = [query_tuple[0] for query_tuple in query_ls]
+        label_data_query_return = [query_tuple[1] for query_tuple in query_ls]
+        
+        return graph_data_support_return, label_data_support_return, graph_data_query_return, label_data_query_return

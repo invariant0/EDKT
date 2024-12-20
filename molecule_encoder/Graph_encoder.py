@@ -30,6 +30,37 @@ class GAT_Graph(nn.Module):
         return out
 
 # GCN Implementation
+# class GCN_Graph(nn.Module):
+#     def __init__(self, input_dim, hidden_dim, embed_dim, num_layers):
+#         super(GCN_Graph, self).__init__()
+#         self.GCN_module_list = nn.ModuleList()
+#         self.LN_module_list = nn.ModuleList()
+        
+#         # First layer
+#         self.GCN_module_list.append(GCNConv(input_dim, hidden_dim))
+#         self.LN_module_list.append(nn.LayerNorm(hidden_dim))
+        
+#         # Hidden layers
+#         for _ in range(num_layers - 1):
+#             self.GCN_module_list.append(GCNConv(hidden_dim, hidden_dim))
+#             self.LN_module_list.append(nn.LayerNorm(hidden_dim))
+            
+#         self.linear = nn.Linear(hidden_dim * 2, embed_dim)
+#         self.num_layers = num_layers
+
+#     def forward(self, batch):
+#         x, edge_index, edge_attr, batch = batch.x, batch.edge_index, batch.edge_attr, batch.batch
+#         out = x
+        
+#         for idx, (GCNmodel, Layer_Norm) in enumerate(zip(self.GCN_module_list, self.LN_module_list)):
+#             out = GCNmodel(out, edge_index)
+#             out = Layer_Norm(out)
+#             out = F.leaky_relu(out, negative_slope=0.1)
+            
+#         out = torch.cat([gmp(out, batch), gap(out, batch)], dim=1)
+#         out = self.linear(out)
+#         return out
+
 class GCN_Graph(nn.Module):
     def __init__(self, input_dim, hidden_dim, embed_dim, num_layers):
         super(GCN_Graph, self).__init__()
@@ -45,17 +76,28 @@ class GCN_Graph(nn.Module):
             self.GCN_module_list.append(GCNConv(hidden_dim, hidden_dim))
             self.LN_module_list.append(nn.LayerNorm(hidden_dim))
             
+        # MLPs after each GCN layer
+        self.mlp_list = nn.ModuleList()
+        for _ in range(num_layers):
+            self.mlp_list.append(nn.Sequential(
+                nn.Linear(hidden_dim, hidden_dim),
+                nn.BatchNorm1d(hidden_dim, track_running_stats=False),
+                nn.ReLU(inplace=False),
+                nn.Linear(hidden_dim, hidden_dim)
+            ))
+            
         self.linear = nn.Linear(hidden_dim * 2, embed_dim)
         self.num_layers = num_layers
 
     def forward(self, batch):
         x, edge_index, edge_attr, batch = batch.x, batch.edge_index, batch.edge_attr, batch.batch
-        out = x
+        out = x.clone()  # Added clone to prevent in-place modifications
         
-        for idx, (GCNmodel, Layer_Norm) in enumerate(zip(self.GCN_module_list, self.LN_module_list)):
+        for idx, (GCNmodel, Layer_Norm, mlp) in enumerate(zip(self.GCN_module_list, self.LN_module_list, self.mlp_list)):
             out = GCNmodel(out, edge_index)
+            out = mlp(out)  # Apply MLP after convolution
             out = Layer_Norm(out)
-            out = F.leaky_relu(out, negative_slope=0.1)
+            out = F.leaky_relu(out, negative_slope=0.1, inplace=False)  # Modified to inplace=False
             
         out = torch.cat([gmp(out, batch), gap(out, batch)], dim=1)
         out = self.linear(out)
@@ -93,7 +135,7 @@ class GIN_Graph(nn.Module):
 
     def forward(self, batch):
         x, edge_index, edge_attr, batch = batch.x, batch.edge_index, batch.edge_attr, batch.batch
-        out = x.clone()  # Added clone to prevent in-place modifications
+        out = x
         
         for idx, (GINmodel, Layer_Norm) in enumerate(zip(self.GIN_module_list, self.LN_module_list)):
             out = GINmodel(out, edge_index)
@@ -105,19 +147,62 @@ class GIN_Graph(nn.Module):
         return out
 
 # GraphSAGE implementation
+# class GraphSAGE(nn.Module):
+#     def __init__(self, input_dim, hidden_dim, embed_dim, num_layers):
+#         super(GraphSAGE, self).__init__()
+#         self.convs = nn.ModuleList()
+#         self.convs.append(SAGEConv(input_dim, hidden_dim))
+#         for _ in range(num_layers - 1):
+#             self.convs.append(SAGEConv(hidden_dim, hidden_dim))
+#         self.linear = nn.Linear(hidden_dim * 2, embed_dim)
+
+#     def forward(self, batch):
+#         x, edge_index = batch.x, batch.edge_index
+#         for conv in self.convs:
+#             x = conv(x, edge_index)
+#             x = F.leaky_relu(x, negative_slope=0.1, inplace=False)
+#         x = torch.cat([gmp(x, batch.batch), gap(x, batch.batch)], dim=1)
+#         return self.linear(x)
+
+
 class GraphSAGE(nn.Module):
     def __init__(self, input_dim, hidden_dim, embed_dim, num_layers):
         super(GraphSAGE, self).__init__()
-        self.convs = nn.ModuleList()
-        self.convs.append(SAGEConv(input_dim, hidden_dim))
+        self.SAGE_module_list = nn.ModuleList()
+        self.LN_module_list = nn.ModuleList()
+        
+        # First layer
+        self.SAGE_module_list.append(SAGEConv(input_dim, hidden_dim))
+        self.LN_module_list.append(nn.LayerNorm(hidden_dim))
+        
+        # Hidden layers
         for _ in range(num_layers - 1):
-            self.convs.append(SAGEConv(hidden_dim, hidden_dim))
+            self.SAGE_module_list.append(SAGEConv(hidden_dim, hidden_dim))
+            self.LN_module_list.append(nn.LayerNorm(hidden_dim))
+            
         self.linear = nn.Linear(hidden_dim * 2, embed_dim)
+        self.num_layers = num_layers
+        
+        # MLPs after each SAGE layer
+        self.mlp_list = nn.ModuleList()
+        for _ in range(num_layers):
+            self.mlp_list.append(nn.Sequential(
+                nn.Linear(hidden_dim, hidden_dim),
+                nn.BatchNorm1d(hidden_dim, track_running_stats=False),
+                nn.ReLU(inplace=False),
+                nn.Linear(hidden_dim, hidden_dim)
+            ))
 
     def forward(self, batch):
-        x, edge_index = batch.x, batch.edge_index
-        for conv in self.convs:
-            x = conv(x, edge_index)
-            x = F.relu(x)
-        x = torch.cat([gmp(x, batch.batch), gap(x, batch.batch)], dim=1)
-        return self.linear(x)
+        x, edge_index, edge_attr, batch = batch.x, batch.edge_index, batch.edge_attr, batch.batch
+        out = x.clone()
+        
+        for idx, (SAGEmodel, Layer_Norm, mlp) in enumerate(zip(self.SAGE_module_list, self.LN_module_list, self.mlp_list)):
+            out = SAGEmodel(out, edge_index)
+            out = mlp(out)  # Apply MLP after convolution
+            out = Layer_Norm(out)
+            out = F.leaky_relu(out, negative_slope=0.1, inplace=False)
+            
+        out = torch.cat([gmp(out, batch), gap(out, batch)], dim=1)
+        out = self.linear(out)
+        return out
