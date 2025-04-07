@@ -12,7 +12,7 @@ cd EDKT
 pip install -r requirements.txt  
 ``` 
 
-# Training a diversified deep kernel function
+# Training stage
 
 The training for each DKT model with distinct setting can be run by following command line:
 
@@ -28,7 +28,7 @@ random_seed specify the different stochastic initialization of the model trainin
 
 After finishing training, the model will be saved in Model_for_publication folder
 
-# Generate prediction result using ensemble from trained models
+# Inference stage
 
 result for fs-mol datasets can be gathered by running the following script
 ```bash
