@@ -12,6 +12,10 @@ cd EDKT
 pip install -r requirements.txt  
 ``` 
 
+# Data 
+
+The data and trained models used for result analysis will be updated here
+
 # Training stage
 
 The training for each DKT model with distinct setting can be run by following command line:
