@@ -1,9 +1,10 @@
-### EDKT
+# EDKT
+
 please cite if you find help!
 
 This is the code implementaion for EDKT model for bio-activity prediction
 
-## Enviroment setup 
+# Enviroment setup 
 
 ```bash  
 git clone https://github.com/invariant0/EDKT.git
@@ -11,7 +12,7 @@ cd EDKT
 pip install -r requirements.txt  
 ``` 
 
-## Training a diversified deep kernel function
+# Training a diversified deep kernel function
 
 The training for each DKT model with distinct setting can be run by following command line:
 
@@ -27,7 +28,7 @@ random_seed specify the different stochastic initialization of the model trainin
 
 After finishing training, the model will be saved in Model_for_publication folder
 
-## Generate prediction result using ensemble from trained models
+# Generate prediction result using ensemble from trained models
 
 result for fs-mol datasets can be gathered by running the following script
 ```bash
@@ -39,19 +40,14 @@ python prediction_gen_.py
 ```
 prediction result will be saved in Result_for_publication folder 
 
-## Performance analysis 
+# Performance analysis 
+
+
+# Bias-Variance decomposition analysis
 
 
 
-## Shapley value analysis
-
-
-
-## Bias-Variance decomposition analysis
-
-
-
-## Calibration plot analysis 
+# Calibration plot analysis 
 
 
 
