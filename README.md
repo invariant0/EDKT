@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 # Data 
 
-The data and trained models used for result analysis will be updated here
+The data and trained models used for result analysis will be updated after publication, if you would like to train your own set of models you can follow the script below
 
 # Training stage
 
