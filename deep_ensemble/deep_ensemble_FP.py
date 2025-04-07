@@ -14,8 +14,15 @@ class ensemble_deep_gp(nn.Module):
         self.encoder_list = nn.ModuleList()
         num_encoder = args.num_encoder
         for _ in range(num_encoder):
-            if 'RGB' in self.args.encode_method:
-                self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel()))
+            if 'RBF' in self.args.encode_method:
+                # self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel()))
+                self.kernel_list.append(
+                    gpytorch.kernels.ScaleKernel(
+                        gpytorch.kernels.RBFKernel(
+                            lengthscale_constraint=gpytorch.constraints.GreaterThan(1e-4)
+                        )
+                    )
+                )
             else:
                 self.kernel_list.append(gpytorch.kernels.ScaleKernel(gpytorch.kernels.MaternKernel(nu=2.5)))
             if args.dataset == 'fsmol':
@@ -25,7 +32,6 @@ class ensemble_deep_gp(nn.Module):
                     self.encoder_list.append(fp_encoder.MLP_encoder(2048, 1000, 1000, 5))
             elif args.dataset == 'pQSAR':
                 self.encoder_list.append(fp_encoder.MLP_encoder(1024, 500, 500, 5))
-
         self.num_encoder = num_encoder
     def kernel_parameters(self):
         return [param for kernel in self.kernel_list for param in kernel.parameters()]

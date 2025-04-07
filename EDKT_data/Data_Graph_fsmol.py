@@ -71,7 +71,7 @@ class deep_gp_data:
         
         return graph_data_support_return, label_data_support_return, graph_data_query_return, label_data_query_return
     
-    def smiles_to_graph_test_subsample(self, assay_id, fold_id, sample_num, r_seed):
+    def smiles_to_graph_test_subsample(self, assay_id, fold_id, propotion, r_seed):
         tuple_ls = []
         for experiment in self.all_data_test[fold_id].assay_dic[assay_id].experiments:
             graph_temp = experiment.fp1
@@ -81,7 +81,9 @@ class deep_gp_data:
         support_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Train']
         
         random.seed(r_seed)
-        random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        # random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        sample_num = int(len(support_ls) * propotion)
+        random_idx = random.sample([i for i in range(len(support_ls))], sample_num)
         support_ls = [support_ls[i] for i in random_idx]
 
         query_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Test']

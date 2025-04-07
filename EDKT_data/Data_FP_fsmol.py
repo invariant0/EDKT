@@ -82,7 +82,7 @@ class deep_gp_data:
         y_tensor_support = np.array([support_tuple[1] for support_tuple in support_ls])
         return torch.tensor(x_tensor_support).float(), torch.tensor(y_tensor_support).float(), torch.tensor(x_tensor_query).float(), torch.tensor(y_tensor_query).float()
     
-    def tensorize_test_subsample(self, assay_id, fold_id, sample_num, r_seed):
+    def tensorize_test_subsample(self, assay_id, fold_id, propotion, r_seed):
         
         x_tensor_query = []
         y_tensor_query = []
@@ -103,7 +103,9 @@ class deep_gp_data:
         support_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Train']
         
         random.seed(r_seed)
-        random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        # random_idx = random.sample([i for i in range(len(support_ls))], min(len(support_ls), sample_num))
+        sample_num = int(len(support_ls) * propotion)
+        random_idx = random.sample([i for i in range(len(support_ls))], sample_num)
         support_ls = [support_ls[i] for i in random_idx]
 
         query_ls = [tuple_item for tuple_item in tuple_ls if tuple_item[2] == 'Test']

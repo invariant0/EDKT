@@ -97,7 +97,7 @@ def train_epoch(model, data, train_assay_ls, eval_assay_ls, optimizer, device, r
     if 'FP' in args.encode_method:
         itter_num = 40
     elif 'Graph' in args.encode_method:
-        itter_num = 80
+        itter_num = 200
     for epoch in range(itter_num):
         train_data_loader.sampler.set_epoch(epoch)
         dataset_train.set_epoch(epoch)
