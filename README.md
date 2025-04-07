@@ -36,7 +36,7 @@ python prediction_gen_fsmol.py
 ```
 result for pQSAR-ChEMBL datasets can be gathered by running the following script
 ```bash
-python prediction_gen_.py
+python prediction_gen_pqsar.py
 ```
 prediction result will be saved in Result_for_publication folder 
 
@@ -44,7 +44,6 @@ prediction result will be saved in Result_for_publication folder
 
 
 # Bias-Variance decomposition analysis
-
 
 
 # Calibration plot analysis 
