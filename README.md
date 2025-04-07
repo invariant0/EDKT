@@ -1,51 +1,62 @@
-### EDKT
-please cite if you find help!
+EDKT: Ensemble Diversified Kernel Transfer for Bio-Activity Prediction
+Please cite our work if you find it helpful!
 
-This is the code implementaion for EDKT model for bio-activity prediction
+This repository contains the official implementation of the EDKT model for bio-activity prediction, focusing on training diversified deep kernel functions.
 
-## Training a diversified deep kernel function
+Table of Contents
+Installation
+Training the Model
+Generating Predictions
+Performance Analysis
+Citation
+Installation
+Clone the repository and install dependencies:
 
-The training for each DKT model with distinct setting can be run by following command line:
+bash
 
-python main.py --dataset fsmol --encode_method {encode_method} --num_encoder {num_encoder} --random_seed {random_seed}
+Copy
+git clone [your-repo-url]  
+cd EDKT  
+pip install -r requirements.txt  # Add a requirements.txt if applicable
+Training the Model
+To train a diversified DKT model with distinct settings, run:
 
-encode_method could be either one of them in :{GraphGAT, GraphSAGE, GraphGIN, GraphGCN, FP, FPRBF, FPaugment, FPaugmentRBF}
+bash
 
-num_encoder could be whatever that maximize your GPU utilization without OOM error, for graph encoding methods 2 is recomended if your GPU has less than 24 GB RAM.
+Copy
+python main.py \
+  --dataset fsmol \
+  --encode_method {encode_method} \
+  --num_encoder {num_encoder} \
+  --random_seed {random_seed}
+Parameters
+encode_method: Choose from:
+GraphGAT, GraphSAGE, GraphGIN, GraphGCN, FP, FPRBF, FPaugment, FPaugmentRBF
+num_encoder: Adjust based on GPU capacity. For graph encoders (e.g., GAT, GIN), use 2 if your GPU has <24 GB RAM.
+random_seed: Controls stochastic initialization.
+Trained models are automatically saved in the Model_for_publication directory.
 
-random_seed specify the different stochastic initialization of the model training. 
+Generating Predictions
+Generate ensemble predictions for different datasets:
 
-After finishing training, the model will be saved in Model_for_publication folder
+FS-Mol Dataset
+bash
 
-## Generate prediction result using ensemble from trained models
-
-result for fs-mol datasets can be gathered by running the following script
-
+Copy
 python prediction_gen_fsmol.py
+pQSAR-ChEMBL Dataset
+bash
 
-result for pQSAR-ChEMBL datasets can be gathered by running the following script
-
+Copy
 python prediction_gen_pqsar.py
+Results are saved in the Result_for_publication folder.
 
-prediction result will be saved in Result_for_publication folder 
+Performance Analysis
+The following analyses are supported:
 
-## Performance analysis 
-
-
-
-## Shapley value analysis
-
-
-
-## Bias-Variance decomposition analysis
-
-
-
-## Calibration plot analysis 
-
-
-
-
-
-
-
+Shapley Value Analysis
+Quantifies feature importance for interpretability.
+Bias-Variance Decomposition
+Diagnoses model performance trade-offs.
+Calibration Plot Analysis
+Evaluates prediction confidence reliability.
