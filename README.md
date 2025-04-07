@@ -17,14 +17,14 @@ pip install -r requirements.txt
 The training for each DKT model with distinct setting can be run by following command line:
 
 ```bash 
-python main.py --dataset fsmol --encode_method {encode_method} --num_encoder {num_encoder} --random_seed {random_seed}
+python main.py --dataset fsmol --encode_method ENCODER --num_encoder ENCODER_NUM --random_seed R_SEED
 ``` 
 
-encode_method could be either one of them in :{GraphGAT, GraphSAGE, GraphGIN, GraphGCN, FP, FPRBF, FPaugment, FPaugmentRBF}
+`ENCODER` could be either one of them in :{GraphGAT, GraphSAGE, GraphGIN, GraphGCN, FP, FPRBF, FPaugment, FPaugmentRBF}
 
-num_encoder could be whatever that maximize your GPU utilization without OOM error, for graph encoding methods 2 is recomended if your GPU has less than 24 GB RAM.
+`ENCODER_NUM` could be whatever that maximize your GPU utilization without OOM error, for graph encoding methods 2 is recomended if your GPU has less than 24 GB RAM.
 
-random_seed specify the different stochastic initialization of the model training. 
+`R_SEED` specify the different stochastic initialization of the model training. 
 
 After finishing training, the model will be saved in Model_for_publication folder
 
