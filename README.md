@@ -46,6 +46,11 @@ prediction result will be saved in Result_for_publication folder
 
 # Performance analysis 
 
+The performance analysis for figure 2 can be reproduced by running the following command, however the results should be saved Result_for_publication folder:
+
+```bash 
+python get_performance_analysis_graph.py
+``` 
 
 # Bias-Variance decomposition analysis
 
